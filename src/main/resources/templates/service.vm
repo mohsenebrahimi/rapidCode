@@ -1,0 +1,20 @@
+package $package;
+
+import com.hamraz.tax.entities.$entityName;
+
+import java.util.List;
+
+#parse("./src/main/resources/templates/header.vm")
+
+public interface ${entityName}Service {
+
+void add($entityName $objectName);
+
+void update($entityName $objectName);
+
+void delete($entityName $objectName);
+
+List<$entityName> get();
+
+List<$entityName> searchByExample($entityName $objectName);
+}

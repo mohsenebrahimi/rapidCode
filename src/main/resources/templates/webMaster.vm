@@ -1,0 +1,51 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                dir="rtl" template="mainLayout.xhtml"
+                xml:lang="fa"
+                lang="fa">
+    <ui:define name="mainContent">
+        <h:form id="frm${entityName}">
+            <p:panel header="#{msg['${objectName}']}">
+                <h:panelGrid  columns="4">
+                    #parse("./src/main/resources/templates/fields.vm")
+                    <p:column>
+                        <p:commandButton value="#{msg['search']}"
+                                         id="btnSearch"
+                                         process="@form" icon="ui-icon-mySearch"
+                                         update="table${entityName}s"
+                                         action="#{${objectName}Controller.search}"/>
+                    </p:column>
+                </h:panelGrid>
+            </p:panel>
+            <p:panel>
+                #parse("./src/main/resources/templates/dataTable.vm")
+            </p:panel>
+        </h:form>
+        <p:dialog id="dlgAdd"
+                  resizable="true"
+                  widgetVar="dlgAddWv"
+                  modal="true"
+                  header="#{msg[add${entityName}]}"
+                  showEffect="clip"
+                  dynamic="true"
+                  showHeader="true"
+                >
+            <ui:include src="add${entityName}.xhtml"/>
+        </p:dialog>
+
+        <p:dialog id="dlgEdit"
+                  resizable="true"
+                  widgetVar="dlgEditWv"
+                  modal="true"
+                  header="#{msg[edit${entityName}]}"
+                  showEffect="clip"
+                  dynamic="true"
+                  showHeader="true"
+                >
+            <ui:include src="edit${entityName}.xhtml"/>
+        </p:dialog>
+
+    </ui:define>
+</ui:composition>

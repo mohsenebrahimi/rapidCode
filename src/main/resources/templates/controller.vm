@@ -1,0 +1,102 @@
+package $package;
+
+import com.hamraz.tax.entities.*;
+import com.hamraz.tax.service.${entityName}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import java.io.Serializable;
+import java.util.List;
+
+
+#parse("./src/main/resources/templates/header.vm")
+
+
+@ManagedBean
+@SessionScoped
+@Controller
+public class ${entityName}Controller implements Serializable {
+
+@Autowired
+private ${entityName}Service ${objectName}Service;
+
+private List<${entityName}> ${objectName}s;
+private ${entityName} searched${entityName} = new ${entityName}();
+private ${entityName} inserted${entityName} = new ${entityName}();
+private ${entityName} selected${entityName} = new ${entityName}();
+
+public List<${entityName}> get${entityName}s() {
+return ${objectName}Service.searchByExample(searched${entityName});
+}
+
+public void set${entityName}s(List<${entityName}> ${objectName}s) {
+this.${objectName}s = ${objectName}s;
+}
+
+public ${entityName} getSearched${entityName}() {
+return searched${entityName};
+}
+
+public void setSearched${entityName}(${entityName} searched${entityName}) {
+this.searched${entityName} = searched${entityName};
+}
+
+public ${entityName} getInserted${entityName}() {
+return inserted${entityName};
+}
+
+public void setInserted${entityName}(${entityName} inserted${entityName}) {
+this.inserted${entityName} = inserted${entityName};
+}
+
+public ${entityName} getSelected${entityName}() {
+return selected${entityName};
+}
+
+public void setSelected${entityName}(${entityName} selected${entityName}) {
+this.selected${entityName} = selected${entityName};
+}
+
+public String add${entityName}() {
+${objectName}Service.add(inserted${entityName});
+return null;
+}
+
+public String edit${entityName}() {
+${objectName}Service.update(selected${entityName});
+return null;
+}
+
+public String search() {
+${objectName}s = ${objectName}Service.searchByExample(searched${entityName});
+return null;
+}
+
+public String delete() {
+${objectName}Service.delete(selected${entityName});
+FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "System Message", "رکورد مورد نظر با موفقیت حذف شد");
+FacesContext.getCurrentInstance().addMessage(null, message);
+return null;
+}
+
+public ${entityName}Controller() {
+this.searched${entityName} = new ${entityName}();
+this.inserted${entityName} = new ${entityName}();
+this.selected${entityName} = new ${entityName}();
+
+#foreach ($f in $fields)
+    #set($fieldName = $f.getName())
+    #if ($f.isReference() == "true")
+    this.searched${entityName}.set${f.getClassName()}(new ${f.getClassName()}());
+    this.inserted${entityName}.set${f.getClassName()}(new ${f.getClassName()}());
+    this.selected${entityName}.set${f.getClassName()}(new ${f.getClassName()}());
+    #end
+#end
+}
+
+
+}

@@ -1,0 +1,97 @@
+<html xmlns="http://java.sun.com/jsf/html" xmlns="http://java.sun.com/jsf/core">
+<head>
+    <title>Entity Descriptor</title>
+    <style>
+        .field {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Entity Name</td>
+        <td>:</td>
+        <td>
+            <select id="entity" class="field">
+                <option>TaxAdministration</option>
+                <option>Company</option>
+                <option>TaxTable</option>
+                <option>TaxResource</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Filed Name</td>
+        <td>:</td>
+        <td>
+            <input class="field" type="text" id="fieldName">
+        </td>
+    </tr>
+    <tr>
+        <td>Filed Type</td>
+        <td>:</td>
+        <td>
+            <select id="fieldType" class="field">
+                <option>Text</option>
+                <option>Number</option>
+                <option>Money</option>
+                <option>Boolean</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            <input id="addBtn" type="submit" value="Add" onclick="add();"/>
+
+            <input id="clearBtn" type="submit" value="Clear" onclick="clearLastItem();"/>
+
+            <input id="clearAllBtn" type="submit" value="Clear All" onclick="clearAll();"/>
+        </td>
+    </tr>
+</table>
+<table id="values" border="1" style="border-style: dashed">
+</table>
+<input id="saveBtn" type="submit" value="Save" onclick="saveItems();"/>
+</body>
+<script>
+    document.getElementById("saveBtn").style.display = "none";
+    function add() {
+        document.getElementById("saveBtn").style.display = "block";
+        var table = document.getElementById("values");
+        var row = table.insertRow(0);
+
+        var cellEntity = row.insertCell(0);
+        var cellFieldName = row.insertCell(1);
+        var cellFieldType = row.insertCell(2);
+
+        var entity = document.getElementById("entity");
+        var selectedEntity = entity.options[entity.selectedIndex].value;
+
+        var fieldType = document.getElementById("fieldType");
+        var selectedFieldType = fieldType.options[fieldType.selectedIndex].value;
+
+        cellEntity.innerHTML = selectedEntity;
+        cellFieldType.innerHTML = selectedFieldType;
+
+        cellFieldName.innerHTML = document.getElementById("fieldName").value;
+    }
+    function clearLastItem() {
+        var table = document.getElementById("values");
+        table.deleteRow(table.length - 1);
+
+    }
+    function clearAll() {
+        var table = document.getElementById("values");
+        var rowCount = table.rows.length;
+        for (var i = 0; i < rowCount; i++) {
+            table.deleteRow(0);
+        }
+
+    }
+    function saveItems() {
+        alert('save');
+    }
+
+</script>
+</html>

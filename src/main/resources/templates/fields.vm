@@ -1,0 +1,13 @@
+#foreach ($f in $fields)
+    #set($fieldName = $f.getName())
+    #if($f.isVisible() == "true")
+        #parse("./src/main/resources/templates/fieldOutputLabel.vm")
+        #if ($f.getType() == "java.util.Date")
+            #parse("./src/main/resources/templates/fieldDate.vm")
+        #elseif ($f.isReference() == "true")
+            #parse("./src/main/resources/templates/fieldSelectOnMenu.vm")
+        #else
+            #parse("./src/main/resources/templates/fieldInputText.vm")
+        #end
+    #end
+#end

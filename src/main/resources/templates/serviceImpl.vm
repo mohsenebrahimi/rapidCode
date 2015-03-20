@@ -1,0 +1,41 @@
+package $package;
+
+import com.hamraz.tax.dao.${entityName}Dao;
+import com.hamraz.tax.entities.$entityName;
+import com.hamraz.tax.service.${entityName}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+#parse("./src/main/resources/templates/header.vm")
+
+@Service(value = "${objectName}Service")
+@Transactional(readOnly = true)
+public class ${entityName}ServiceImpl implements ${entityName}Service {
+
+@Autowired
+private ${entityName}Dao ${objectName}Dao;
+@Transactional(readOnly = false)
+public void add($entityName $objectName) {
+${objectName}Dao.add($objectName);
+}
+@Override
+public List<$entityName> searchByExample($entityName $objectName) {
+
+    return get();
+    }
+@Transactional(readOnly = false)
+public void update($entityName $objectName) {
+${objectName}Dao.update(${objectName});
+}
+@Transactional(readOnly = false)
+public void delete($entityName $objectName) {
+${objectName}Dao.delete($objectName);
+}
+
+public List<$entityName> get() {
+    return ${objectName}Dao.get();
+    }
+    }

@@ -1,0 +1,47 @@
+package $package;
+
+import com.hamraz.tax.dao.${entityName}Dao;
+import com.hamraz.tax.entities.$entityName;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+#parse("./src/main/resources/templates/header.vm")
+
+@Repository
+public class ${entityName}DaoImpl implements ${entityName}Dao {
+@Autowired
+private SessionFactory sessionFactory;
+
+public SessionFactory getSessionFactory() {
+return sessionFactory;
+}
+
+public void setSessionFactory(SessionFactory sessionFactory) {
+this.sessionFactory = sessionFactory;
+}
+
+@Override
+public void add($entityName $objectName) {
+getSessionFactory().getCurrentSession().merge($objectName);
+}
+
+@Override
+public void delete($entityName $objectName) {
+getSessionFactory().getCurrentSession().delete($objectName);
+}
+
+@Override
+public void update($entityName $objectName) {
+getSessionFactory().getCurrentSession().merge($objectName);
+
+}
+
+@Override
+public List<$entityName> get() {
+return getSessionFactory().getCurrentSession().createQuery("from com.hamraz.tax.entities.${entityName}").list();
+
+}
+}

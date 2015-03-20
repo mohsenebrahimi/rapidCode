@@ -1,0 +1,24 @@
+package $package;
+
+import com.hamraz.tax.entities.$entityName;
+import org.hibernate.SessionFactory;
+
+import java.util.List;
+
+#parse("./src/main/resources/templates/header.vm")
+
+public interface ${entityName}Dao {
+
+public SessionFactory getSessionFactory();
+
+public void setSessionFactory(SessionFactory sessionFactory);
+
+public void add($entityName $objectName);
+
+public void delete($entityName $objectName);
+
+public void update($entityName $objectName);
+
+public List<$entityName> get();
+
+}

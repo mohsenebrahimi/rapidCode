@@ -1,0 +1,53 @@
+<p:dataTable
+        id="table${entityName}s"
+        var="row"
+        rowKey="#{row.id}"
+        value="#{${objectName}Controller.${objectName}s}"
+        emptyMessage="#{msg['noRecordFound']}"
+        scrollable="true"
+        scrollHeight="300"
+        selectionMode="single"
+        selection="#{${objectName}Controller.selected${entityName}}"
+        paginator="true"
+        paginatorPosition="bottom">
+
+
+
+    <f:facet name="header">
+        #{msg['${objectName}']}
+    </f:facet>
+    #parse("./src/main/resources/templates/dataTableColumn.vm")
+    <f:facet name="footer">
+
+
+        <p:commandButton value="#{msg['add']}"
+                         id="btnAdd"
+                         icon="ui-icon-myAdd"
+                         update=":dlgAdd"
+                         oncomplete="PF('dlgAddWv').show();"/>
+
+        <p:commandButton value="#{msg['edit']}"
+                         id="btnEdit"
+                         icon="ui-icon-myEdit"
+                         update=":dlgEdit"
+                         oncomplete="PF('dlgEditWv').show();"/>
+
+        <p:commandButton value="#{msg['delete']}"
+                         id="btnDelete"
+                         process="@form" icon="ui-icon-myDelete"
+                         update="table${entityName}s"
+                         action="#{${objectName}Controller.delete}">
+            <p:confirm header="Confirmation"
+                       icon="ui-icon-alert"/>
+        </p:commandButton>
+        <p:confirmDialog global="true" style="direction: ltr"
+                         message="#{msg['delete_message']}"
+                         showEffect="fade" id="confirm" hideEffect="blink">
+            <p:commandButton value="#{msg['yes']}"
+                             type="button"
+                             styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+            <p:commandButton value="#{msg['no']}" type="button" styleClass="ui-confirmdialog-no"
+                             icon="ui-icon-close"/>
+        </p:confirmDialog>
+    </f:facet>
+</p:dataTable>

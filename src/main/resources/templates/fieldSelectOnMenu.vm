@@ -1,0 +1,5 @@
+<p:selectOneMenu  style="width: 100%;text-align: left" id="${fieldName}"  value="#{${objectName}Controller.${objectControllerName}${entityName}.${fieldName}.id}">
+    <f:selectItem itemLabel="#{msg['selectItem']}" itemValue="" noSelectionOption="true"/>
+    <f:selectItems value="#{${fieldName}Controller.${fieldName}s}" var="row" itemLabel="#{row.title}"  itemValue="#{row.id}" />
+</p:selectOneMenu>
+

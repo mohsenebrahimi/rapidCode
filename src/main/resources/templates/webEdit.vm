@@ -1,0 +1,21 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                dir="rtl"
+                xml:lang="fa"
+                lang="fa">
+    <h:form id="frmEdit${entityName}">
+        <p:panel>
+            <h:panelGrid columns="4">
+                #parse("./src/main/resources/templates/fields.vm")
+            </h:panelGrid>
+        </p:panel>
+        <p:commandButton value="#{msg['register']}"
+                         id="btnEdit"
+                         process="@form" icon="ui-icon-myEdit"
+                         update=":frm${entityName}:table${entityName}s"
+                         action="#{${objectName}Controller.edit${entityName}}"
+                         oncomplete="PF('dlgEditWv').hide();"/>
+    </h:form>
+</ui:composition>

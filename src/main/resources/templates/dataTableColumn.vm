@@ -1,0 +1,12 @@
+#foreach ($f in $fields)
+    #set($fieldName = $f.getName())
+    #if($f.isVisible() == "true")
+    <p:column headerText="#{msg['${fieldName}']}">
+        #if ($f.isReference() == "true")
+            #{row.${fieldName}.title}
+        #else
+            #{row.${fieldName}}
+        #end
+    </p:column>
+    #end
+#end

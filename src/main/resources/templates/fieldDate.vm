@@ -1,0 +1,7 @@
+<p:column>
+<p:inputText id="${fieldName}"
+             value="#{${objectName}Controller.${objectControllerName}${entityName}.${fieldName}}"
+             converter="convertDateAndTime"/>
+<p:graphicImage value="images/calendar.png" id="calendar-img-${fieldName}"
+                onclick="showCalendar('frm${page}${entityName}:${fieldName}',false)"/>
+</p:column>
