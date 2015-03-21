@@ -4,9 +4,13 @@
     <p:column headerText="#{msg['${fieldName}']}">
         #if ($f.isReference() == "true")
             #{row.${fieldName}.title}
+        #else #if ($f.getType() == "java.util.Date")
+            <p:outputLabel converter="convertDateAndTime" value="#{#{row.${fieldName}}}"/>
         #else
             #{row.${fieldName}}
         #end
     </p:column>
     #end
 #end
+
+

@@ -1,7 +1,7 @@
 package com.pakzad.rc.launcher;
 
-import com.pakzad.rc.generator.CodeGenerator;
-import com.pakzad.rc.generator.impl.fileGenerator.*;
+import com.pakzad.rc.generator.fileGenerator.CodeGenerator;
+import com.pakzad.rc.generator.fileGenerator.impl.*;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -23,11 +23,11 @@ public class MainClass {
         CodeGenerator webEditGenerator = new WebEditGenerator();
 
         for (String entityName : getListOfFiles(getEntitiesDirectory(null))) {
-            /*daoImplGenerator.create(entityName);
+            daoImplGenerator.create(entityName);
             daoGenerator.create(entityName);
             serviceGenerator.create(entityName);
             serviceImplGenerator.create(entityName);
-            controllerGenerator.create(entityName);*/
+            controllerGenerator.create(entityName);
             webMasterGenerator.create(entityName);
             webAddGenerator.create(entityName);
             webEditGenerator.create(entityName);
