@@ -1,4 +1,4 @@
-package com.pakzad.rc.utils;
+package com.pakzad.generator.utils;
 
 import java.nio.file.Paths;
 

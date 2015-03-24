@@ -1,11 +1,11 @@
-package com.pakzad.rc.generator.fileGenerator.impl;
+package com.pakzad.generator.fileGenerator.impl;
 
-import com.pakzad.rc.generator.enums.TemplateTypes;
-import com.pakzad.rc.generator.fileGenerator.CodeGenerator;
-import com.pakzad.rc.generator.fileService.FileService;
-import com.pakzad.rc.generator.template.TemplateManager;
-import com.pakzad.rc.utils.FileUtil;
-import com.pakzad.rc.utils.StringUtil;
+import com.pakzad.generator.enums.TemplateTypes;
+import com.pakzad.generator.fileGenerator.CodeGenerator;
+import com.pakzad.generator.fileService.FileService;
+import com.pakzad.generator.template.TemplateManager;
+import com.pakzad.generator.utils.FileUtil;
+import com.pakzad.generator.utils.StringUtil;
 
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public abstract class AbstractCodeGenerator implements CodeGenerator {
             if (!(new File(Paths.get(directoryName).toAbsolutePath().toString()).exists()))
                 FileUtil.makeDirectories(Paths.get(directoryName).toAbsolutePath().toString());
 
-            getFileService().createFile(StringUtil.getAddress(templateTypes.getPackageName(), getClassName(entityName)), getTemplateManager().getWriter(templateTypes, map).toString());
+            getFileService().createFile(StringUtil.makeFileAddress(templateTypes.getPackageName(), getClassName(entityName)), getTemplateManager().getWriter(templateTypes, map).toString());
         } catch (IOException e) {
             //todo: throw new GeneratingException();
             e.printStackTrace();

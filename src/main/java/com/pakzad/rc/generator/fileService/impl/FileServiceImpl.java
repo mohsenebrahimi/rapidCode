@@ -1,6 +1,6 @@
-package com.pakzad.rc.generator.fileService.impl;
+package com.pakzad.generator.fileService.impl;
 
-import com.pakzad.rc.generator.fileService.FileService;
+import com.pakzad.generator.fileService.FileService;
 
 import java.io.File;
 import java.io.FileWriter;

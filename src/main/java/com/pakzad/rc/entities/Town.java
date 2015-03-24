@@ -1,4 +1,4 @@
-package com.pakzad.rc.entities;
+package com.pakzad.entities;
 
 import javax.persistence.*;
 

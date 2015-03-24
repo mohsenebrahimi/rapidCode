@@ -1,4 +1,4 @@
-package com.pakzad.rc.generator.enums;
+package com.pakzad.generator.enums;
 
 /**
  * @author ramin pakzad (ramin.highborn@gmail.com) on 3/5/2015.

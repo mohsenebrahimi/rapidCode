@@ -1,4 +1,4 @@
-package com.pakzad.rc.generator.fileService;
+package com.pakzad.generator.fileService;
 
 import java.io.IOException;
 

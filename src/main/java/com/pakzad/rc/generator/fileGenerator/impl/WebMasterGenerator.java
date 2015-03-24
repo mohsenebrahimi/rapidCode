@@ -1,12 +1,12 @@
-package com.pakzad.rc.generator.fileGenerator.impl;
+package com.pakzad.generator.fileGenerator.impl;
 
-import com.pakzad.rc.generator.enums.TemplateTypes;
-import com.pakzad.rc.generator.fileGenerator.CodeGenerator;
-import com.pakzad.rc.generator.fileService.FileService;
-import com.pakzad.rc.generator.fileService.impl.FileServiceImpl;
-import com.pakzad.rc.generator.template.TemplateManager;
-import com.pakzad.rc.generator.template.impl.WebMasterTemplateManger;
-import com.pakzad.rc.utils.StringUtil;
+import com.pakzad.generator.enums.TemplateTypes;
+import com.pakzad.generator.fileGenerator.CodeGenerator;
+import com.pakzad.generator.fileService.FileService;
+import com.pakzad.generator.fileService.impl.FileServiceImpl;
+import com.pakzad.generator.template.TemplateManager;
+import com.pakzad.generator.template.impl.WebMasterTemplateManger;
+import com.pakzad.generator.utils.StringUtil;
 
 /**
  * @author ramin pakzad (ramin.highborn@gmail.com) on 3/12/2015.

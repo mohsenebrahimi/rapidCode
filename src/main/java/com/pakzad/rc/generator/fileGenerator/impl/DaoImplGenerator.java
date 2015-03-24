@@ -1,11 +1,11 @@
-package com.pakzad.rc.generator.fileGenerator.impl;
+package com.pakzad.generator.fileGenerator.impl;
 
-import com.pakzad.rc.generator.enums.TemplateTypes;
-import com.pakzad.rc.generator.fileGenerator.CodeGenerator;
-import com.pakzad.rc.generator.fileService.FileService;
-import com.pakzad.rc.generator.fileService.impl.FileServiceImpl;
-import com.pakzad.rc.generator.template.TemplateManager;
-import com.pakzad.rc.generator.template.impl.DaoImplTemplateManager;
+import com.pakzad.generator.enums.TemplateTypes;
+import com.pakzad.generator.fileGenerator.CodeGenerator;
+import com.pakzad.generator.fileService.FileService;
+import com.pakzad.generator.fileService.impl.FileServiceImpl;
+import com.pakzad.generator.template.TemplateManager;
+import com.pakzad.generator.template.impl.DaoImplTemplateManager;
 
 /**
  * @author ramin pakzad (ramin.highborn@gmail.com) on 3/5/2015.

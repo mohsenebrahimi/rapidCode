@@ -1,7 +1,7 @@
-package com.pakzad.rc.launcher;
+package com.pakzad.launcher;
 
-import com.pakzad.rc.generator.fileGenerator.CodeGenerator;
-import com.pakzad.rc.generator.fileGenerator.impl.*;
+import com.pakzad.generator.fileGenerator.CodeGenerator;
+import com.pakzad.generator.fileGenerator.impl.*;
 
 import java.io.File;
 import java.nio.file.Paths;

@@ -1,6 +1,6 @@
-package com.pakzad.rc.generator.template;
+package com.pakzad.generator.template;
 
-import com.pakzad.rc.generator.enums.TemplateTypes;
+import com.pakzad.generator.enums.TemplateTypes;
 
 import java.io.StringWriter;
 import java.util.Map;

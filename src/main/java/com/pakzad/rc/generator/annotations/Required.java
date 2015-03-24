@@ -1,4 +1,4 @@
-package com.pakzad.rc.generator.annotations;
+package com.pakzad.generator.annotations;
 
 /**
  * @author ramin pakzad (ramin.highborn@gmail.com) on 3/12/2015.

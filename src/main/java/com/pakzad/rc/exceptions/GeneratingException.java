@@ -1,4 +1,4 @@
-package com.pakzad.rc.exceptions;
+package com.pakzad.exceptions;
 
 /**
  * @author ramin pakzad (ramin.highborn@gmail.com) on 3/5/2015.

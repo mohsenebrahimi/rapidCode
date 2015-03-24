@@ -1,9 +1,9 @@
-package com.pakzad.rc.generator.template.impl;
+package com.pakzad.generator.template.impl;
 
-import com.pakzad.rc.generator.enums.TemplateTypes;
-import com.pakzad.rc.generator.entities.FieldInfo;
-import com.pakzad.rc.generator.template.TemplateManager;
-import com.pakzad.rc.utils.StringUtil;
+import com.pakzad.generator.enums.TemplateTypes;
+import com.pakzad.generator.entities.FieldInfo;
+import com.pakzad.generator.template.TemplateManager;
+import com.pakzad.generator.utils.StringUtil;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -40,7 +40,7 @@ public abstract class AbstractTemplateManager implements TemplateManager {
     private List<FieldInfo> getFields(String entityName) {
         List<FieldInfo> fields = new ArrayList<FieldInfo>();
         try {
-            for (Field f : Class.forName("com.pakzad.rc.entities." + entityName).getDeclaredFields()) {
+            for (Field f : Class.forName("com.pakzad.entities." + entityName).getDeclaredFields()) {
                 fields.add(new FieldInfo(entityName, f.getName(), f.getType().getName(), StringUtil.getClassName(f.getName()), isReference(f), true, isVisible(f)));
             }
         } catch (ClassNotFoundException e) {

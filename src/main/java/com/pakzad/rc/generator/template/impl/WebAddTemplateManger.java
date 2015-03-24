@@ -1,7 +1,7 @@
-package com.pakzad.rc.generator.template.impl;
+package com.pakzad.generator.template.impl;
 
-import com.pakzad.rc.generator.enums.TemplateTypes;
-import com.pakzad.rc.generator.template.TemplateManager;
+import com.pakzad.generator.enums.TemplateTypes;
+import com.pakzad.generator.template.TemplateManager;
 
 import java.util.Map;
 
